@@ -1,7 +1,5 @@
 # Quem sou eu?
 
-![eu](./img/linkedin.png)
-
 Olá, meu nome é Cleverson Rodrigues. Sou um profissional de tecnologia desde 2002, atualmente no segmento de cultura DevOps, com experiência em migrações de datacenters fisicos para cloud, automatização de processos e implementação de soluções multicloud.
 
 Meu objetivo é simplificar e otimizar processos através de automação e integração de ferramentas DevOps, sempre buscando melhorias contínuas e garantindo segurança, resiliencia e conformidade dos sistemas.
