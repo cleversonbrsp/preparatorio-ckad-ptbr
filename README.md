@@ -35,43 +35,43 @@ Simulador de exame
 
 ---
 
-# Application Design and Build (20%)
+# Design e Construção de Aplicações (20%)
 
-Define, build and modify container images
-Choose and use the right workload resource (Deployment, DaemonSet, CronJob, etc.)
-Understand multi-container Pod design patterns (e.g. sidecar, init and others)
-Utilize persistent and ephemeral volumes
+Definir, construir e modificar imagens de contêineres
+Escolher e utilizar o recurso de carga de trabalho adequado (Deployment, DaemonSet, CronJob, etc.)
+Compreender padrões de design de Pods com múltiplos contêineres (ex.: sidecar, init e outros)
+Utilizar volumes persistentes e efêmeros
 
-# Application Deployment (20%)
+# Implantação de Aplicações (20%)
 
-Use Kubernetes primitives to implement common deployment strategies (e.g. blue/green or canary)
-Understand Deployments and how to perform rolling updates
-Use the Helm package manager to deploy existing packages
+Usar primitivas do Kubernetes para implementar estratégias de implantação comuns (ex.: blue/green ou canary)
+Compreender Deployments e como realizar atualizações contínuas
+Usar o gerenciador de pacotes Helm para implantar pacotes existentes
 Kustomize
 
-# Application Observability and Maintenance (15%)
+# Observabilidade e Manutenção de Aplicações (15%)
 
-Understand API deprecations
-Implement probes and health checks
-Use built-in CLI tools to monitor Kubernetes applications
-Utilize container logs
-Debugging in Kubernetes
+Compreender a depreciação de APIs
+Implementar probes e verificações de saúde (health checks)
+Utilizar ferramentas de linha de comando integradas para monitorar aplicações Kubernetes
+Utilizar logs de contêineres
+Depuração no Kubernetes
 
-# Application Environment, Configuration and Security (25%)
+# Ambiente da Aplicação, Configuração e Segurança (25%)
 
-Discover and use resources that extend Kubernetes (CRD, Operators)
-Understand authentication, authorization and admission control
-Understand Requests, limits, quotas
-Understand ConfigMaps
-Define resource requirements
-Create & consume Secrets
-Understand ServiceAccounts
-Understand Application Security (SecurityContexts, Capabilities, etc.)
+Descobrir e usar recursos que estendem o Kubernetes (CRD, Operadores)
+Compreender autenticação, autorização e controle de admissão
+Compreender Requests, limites e cotas
+Compreender ConfigMaps
+Definir requisitos de recursos
+Criar e consumir Secrets
+Compreender ServiceAccounts
+Compreender a segurança da aplicação (SecurityContexts, Capabilities, etc.)
 
-# Services and Networking (20%)
+# Serviços e Rede (20%)
 
-Demonstrate basic understanding of NetworkPolicies
-Provide and troubleshoot access to applications via services
-Use Ingress rules to expose applications
+Demonstrar compreensão básica de NetworkPolicies
+Prover e solucionar problemas de acesso às aplicações via serviços
+Usar regras de Ingress para expor aplicações
 
 fonte oficial: https://trainingportal.linuxfoundation.org/courses/certified-kubernetes-application-developer-ckad
