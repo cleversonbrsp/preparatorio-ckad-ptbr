@@ -1,4 +1,6 @@
-- - Gere 2 deployments app-v1 e app-v2 como nesse template:
+# Lab2 (minikube)
+
+- Gere 2 deployments app-v1 e app-v2 como nesse template:
   ```yaml
   apiVersion: apps/v1
   kind: Deployment

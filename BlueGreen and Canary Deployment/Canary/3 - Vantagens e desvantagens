@@ -1,0 +1,15 @@
+### Prós e Contras do Canary Deployment
+
+**Prós:**
+
+1. **Implantação gradual**: Permite introduzir mudanças de forma incremental, minimizando o impacto em caso de falhas.
+2. **Menos risco**: Apenas uma pequena porcentagem de usuários é afetada inicialmente, reduzindo a chance de problemas em grande escala.
+3. **Monitoramento contínuo**: O comportamento da nova versão pode ser observado em produção antes de ser completamente adotada.
+4. **Feedback rápido**: Possibilita obter feedback e métricas reais de desempenho rapidamente.
+
+**Contras:**
+
+1. **Complexidade no roteamento**: Requer ferramentas ou configurações para redirecionar tráfego progressivamente entre as versões.
+2. **Requer automação**: Implementar um Canary Deployment manualmente pode ser desafiador; o uso de ferramentas de automação como Argo Rollouts, Flagger, Istio, Traefik, Kubernetes NGINX Ingress Controller, Spinnaker, etc, é praticamente necessário.
+3. **Gerenciamento de estado**: Se as versões compartilharem bancos de dados, problemas de compatibilidade entre esquemas podem surgir.
+4. **Rollback mais complexo**: Embora o rollback seja possível, pode ser mais complexo se a nova versão já estiver recebendo tráfego significativo.
