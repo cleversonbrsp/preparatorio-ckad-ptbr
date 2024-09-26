@@ -1,12 +1,3 @@
-# Preparatorio CKAD [PTBR]
-
-Repositório destinado a documentar minha jornada de preparação para prova CKAD.
-
-Nessa jornada, estarei utilizando o 'minikube' como ambiente principal.
-fonte oficial: https://minikube.sigs.k8s.io/docs/
-
----
-
 # Para quem é essa certificação?
 
 Essa certificação é destinada a engenheiros de Kubernetes, engenheiros de cloud e outros profissionais de TI responsáveis por construir, implantar e configurar aplicações nativas em cloud usando Kubernetes.
