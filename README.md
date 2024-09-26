@@ -1,4 +1,4 @@
-# preparatorio-ckad-ptbr
+# Preparatorio CKAD [PTBR]
 
 Repositório destinado a documentar minha jornada de preparação para prova CKAD.
 
