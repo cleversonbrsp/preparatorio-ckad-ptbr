@@ -1,5 +1,3 @@
-# Kubernetes Multi-Containers - Apostila
-
 ## O que são Pods Multi-Containers?
 
 No Kubernetes, um **Pod** pode conter múltiplos contêineres, conhecidos como **multi-containers**. Isso permite que várias aplicações ou serviços sejam executados em conjunto dentro do mesmo Pod. Embora seja mais comum ter um único contêiner por Pod, existem cenários onde múltiplos contêineres em um Pod podem ser benéficos.
