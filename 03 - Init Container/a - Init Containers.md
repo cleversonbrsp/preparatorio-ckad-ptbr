@@ -1,5 +1,3 @@
-# Kubernetes Init Containers - Apostila
-
 ## O que são Init Containers?
 
 **Init Containers** são contêineres especiais em um Pod que **executam e finalizam sua execução antes dos contêineres principais** (os containers da aplicação) começarem a ser executados. Esses contêineres são úteis para realizar tarefas de inicialização, como verificar dependências ou preparar o ambiente antes que o contêiner principal seja iniciado.
