@@ -1,7 +1,3 @@
-Aqui estão dois simulados de exercícios do exame CKAD sobre **Init Containers**, cada um com um contexto de caso real.
-
----
-
 ### Simulado 1: Validação de Conexão com Banco de Dados
 
 **Contexto**:  
