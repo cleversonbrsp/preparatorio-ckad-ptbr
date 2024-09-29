@@ -10,7 +10,7 @@ O exame pressupõe conhecimento prático sobre runtimes de contêineres e arquit
 
 # O candidato bem-sucedido terá familiaridade com:
 
-– trabalhar com imagens de contêineres compatíveis com OCI
+– trabalhar com imagens de contêineres
 – aplicar conceitos e arquiteturas de aplicações nativas em cloud
 – trabalhar com definições de recursos do Kubernetes e validá-las
 
