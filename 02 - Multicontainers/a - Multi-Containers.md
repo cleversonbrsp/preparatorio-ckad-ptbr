@@ -88,7 +88,3 @@ spec:
 Embora o uso de multi-containers em um Pod possa ser vantajoso em certos cenários, é importante seguir o princípio de que os contêineres devem ser agrupados em um Pod **somente se forem estreitamente acoplados**. O uso excessivo de múltiplos contêineres pode aumentar a complexidade e dificultar o gerenciamento, especialmente em cenários de escalabilidade.
 
 A melhor prática é projetar Pods de multi-containers quando houver uma interdependência clara entre os processos que devem ser executados no mesmo ambiente.
-
-```
-
-```
