@@ -41,7 +41,6 @@ Implemente probes para garantir que o **Order Processing Service**:
 
 ---
 
-````markdown
 # Solução do Simulado CKAD: Probes no Kubernetes
 
 Clique abaixo para revelar a solução.
@@ -95,7 +94,6 @@ spec:
             periodSeconds: 30
             timeoutSeconds: 5
 ```
-````
 
 Neste manifesto:
 
