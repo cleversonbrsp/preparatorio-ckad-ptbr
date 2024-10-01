@@ -42,7 +42,7 @@ Implemente probes para garantir que o **Order Processing Service**:
 ---
 
 <details>
-  <summary># Solução do Simulado CKAD: Probes no Kubernetes</summary>
+  <summary><strong style="font-size: 1.2em;">Solução do Simulado CKAD: Probes no Kubernetes</strong></summary>
 
 ### Manifesto YAML do Deployment com Probes
 
