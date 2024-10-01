@@ -41,12 +41,8 @@ Implemente probes para garantir que o **Order Processing Service**:
 
 ---
 
-# Solução do Simulado CKAD: Probes no Kubernetes
-
-Clique abaixo para revelar a solução.
-
 <details>
-  <summary>Mostrar Solução</summary>
+  <summary># Solução do Simulado CKAD: Probes no Kubernetes</summary>
 
 ### Manifesto YAML do Deployment com Probes
 
@@ -102,4 +98,3 @@ Neste manifesto:
 - A **Liveness Probe** monitora o endpoint `/health` e, se o contêiner não estiver respondendo corretamente, ele será reiniciado.
 
 </details>
-```
