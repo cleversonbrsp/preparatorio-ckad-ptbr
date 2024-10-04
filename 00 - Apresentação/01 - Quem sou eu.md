@@ -9,10 +9,9 @@ Além disso, trabalhei com Datacenters on-premises de selo Tier 3, gerenciando a
 
 Tenho habilidades em ferramentas como Kubernetes, Terraform, Ansible, Jenkins, e sou certificado como Arquiteto pela Google e Oracle Cloud, entre outras certificações relevantes descritas no meu linkedin.
 
-Vamos nos conectar no LinkedIn ou GitHub para discutirmos como posso contribuir para o seu projeto?
-
 Abraços!
 \o
 
 **linkedin:**
 https://www.linkedin.com/in/cleversonbrsp/
+
