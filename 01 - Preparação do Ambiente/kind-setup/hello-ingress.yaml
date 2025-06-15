@@ -30,8 +30,7 @@ spec:
   - protocol: TCP
     port: 80
     targetPort: 80
-  # Não usar LoadBalancer no Kind!
-  type: ClusterIP
+  type: LoadBalancer
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress

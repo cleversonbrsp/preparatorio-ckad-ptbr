@@ -39,7 +39,7 @@ kind-setup/
 
 ---
 
-## 1. `cluster.yaml` – define a topologia do cluster
+## 1. `kind-cluster.yaml` – define a topologia do cluster
 
 ```yaml
 kind: Cluster
@@ -47,12 +47,18 @@ apiVersion: kind.x-k8s.io/v1alpha4
 name: dev-cluster
 nodes:
 - role: control-plane
+  extraPortMappings:
+    - containerPort: 80
+      hostPort: 80
+    - containerPort: 443
+      hostPort: 443
 - role: worker
 - role: worker
 networking:
   disableDefaultCNI: false
   apiServerAddress: "127.0.0.1"
   apiServerPort: 6443
+
 ```
 
 ---
@@ -61,19 +67,30 @@ networking:
 
 ```bash
 #!/bin/bash
-echo "[INFO] Deploying Ingress NGINX..."
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.5/deploy/static/provider/kind/deploy.yaml
+set -e
 
-# Lista os nodes e adiciona a label ingress-ready=true
+echo "Instalando ingress-nginx no Kind (sem webhook admission)..."
+
+helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx \
+  --namespace ingress-nginx \
+  --create-namespace \
+  --set controller.admissionWebhooks.enabled=false \
+  --set controller.ingressClassResource.default=true \
+  --set controller.ingressClassResource.name=nginx \
+  --set controller.service.type=LoadBalancer
+
+
+# Label para identificar que o node está pronto para ingress (não obrigatório mas usado por outros setups)
 for node in $(kubectl get nodes -o name); do
   kubectl label "$node" ingress-ready=true --overwrite
 done
 
-echo "[INFO] Aguardando Ingress Controller ficar pronto..."
+echo "Aguardando Ingress Controller ficar pronto..."
 kubectl wait --namespace ingress-nginx \
   --for=condition=Ready pod \
   --selector=app.kubernetes.io/component=controller \
   --timeout=180s
+
 ```
 
 ---
@@ -117,6 +134,7 @@ EOF
 ## 4. `hello-ingress.yaml` – serviço e ingress
 
 ```yaml
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -157,6 +175,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - host: hello.local
     http:
@@ -192,7 +211,7 @@ demo:
 
 hosts:
 	@echo "[INFO] Adicionando hello.local ao /etc/hosts"
-	echo "127.0.0.1 hello.local" | sudo tee -a /etc/hosts
+	echo "172.19.255.200 hello.local" | sudo tee -a /etc/hosts
 
 destroy:
 	@echo "[INFO] Removendo cluster..."
@@ -227,7 +246,7 @@ Laboratório local com Kubernetes usando Kind + Ingress + MetalLB.
 
 ```bash
 git clone https://github.com/SEU_USUARIO/kind-lab.git
-cd kind-lab
+cd kind-setup
 
 make rebuild
 ```

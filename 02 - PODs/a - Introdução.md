@@ -42,3 +42,13 @@ kubectl logs <pod-name> -c <container-name>
 # Executar um comando em um contêiner em execução
 kubectl exec -it <pod-name> -- <command>
 ```
+## Notas
+- Como executamos containers dentro do kubernetes (https://kubernetes.io/docs/concepts/workloads/pods/)
+- Todo recurso dentro do pod usará o mesmo IP forncecido pelo POD
+
+- kubectl run app --image=nginx --port=80
+- k get po
+- k get po -o wide
+- curl [pod ip]
+- k get po app -o yaml
+- kubectl run app --image=nginx --port=80 --dry-run=client -o yaml
