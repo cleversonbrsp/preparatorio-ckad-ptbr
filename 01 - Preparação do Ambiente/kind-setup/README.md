@@ -1,16 +1,34 @@
-Aqui vai um **pacote completo do laboratório Kind**, pronto para rodar com `make` e simular um cluster Kubernetes real com:
+Durante essa jornada, estarei utilizando o **Kind** como ambiente principal.
+
+> **Fonte oficial do Kind:**  
+> [https://kind.sigs.k8s.io/](https://kind.sigs.k8s.io/)
+
+---
+
+## Por que utilizar o Kind?
+
+- Permite criar **múltiplos nodes com kubeadm**, simulando um cluster real de forma mais próxima da produção.
+- Executa o **mesmo stack utilizado em clusters reais**.
+- Utiliza **imagens oficiais do Kubernetes**, garantindo maior fidelidade ao ambiente real.
+- É ideal para **testes automatizados e pipelines CI/CD**, onde o comportamento do cluster precisa ser realista.
+
+Aqui vai um **pacote completo do meu setup Kind**, pronto para rodar com `make` e simular um cluster Kubernetes real com:
 
 * 3 nodes (1 control-plane, 2 workers)
 * NGINX Ingress Controller
 * MetalLB com IP pool
 * Aplicação demo acessível via `http://hello.local`
 
+## Nota:
+O Kind não suporta webhooks admission do ingress-nginx por padrão, porque:
+- O service ingress-nginx-controller-admission é do tipo ClusterIP
+- E Kind não tem DNS interno nem rede compatível para o kube-apiserver acessar o webhook via esse service
 ---
 
 ## 📁 Estrutura final
 
 ```text
-kind-lab/
+kind-setup/
 ├── Makefile
 ├── cluster.yaml
 ├── deploy-nginx-ingress.sh
@@ -46,6 +64,11 @@ networking:
 echo "[INFO] Deploying Ingress NGINX..."
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.5/deploy/static/provider/kind/deploy.yaml
 
+# Lista os nodes e adiciona a label ingress-ready=true
+for node in $(kubectl get nodes -o name); do
+  kubectl label "$node" ingress-ready=true --overwrite
+done
+
 echo "[INFO] Aguardando Ingress Controller ficar pronto..."
 kubectl wait --namespace ingress-nginx \
   --for=condition=Ready pod \
@@ -77,7 +100,7 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-  - 172.18.255.200-172.18.255.250
+  - 172.19.255.200-172.19.255.250
 ---
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
@@ -87,7 +110,7 @@ metadata:
 EOF
 ```
 
-> Ajuste o range `172.18.255.200-250` conforme o subnet Docker (ver com `docker network inspect kind | grep Subnet`).
+> Ajuste o range `172.19.255.200-250` conforme o subnet Docker (ver com `docker network inspect kind | grep Subnet`).
 
 ---
 
